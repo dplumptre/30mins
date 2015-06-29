@@ -1,0 +1,332 @@
+
+
+.header-title{
+
+font-size:75px;
+font-family: 'Alegreya Sans SC', sans-serif;
+font-weight: 900;
+line-height: 1.1;
+color: white;
+}
+
+
+#banner {
+    min-height: 30px;
+    border-bottom: medium none;
+}
+
+.alert-heading {
+    background-color: #006766;
+    color: #FFF;
+}
+
+.alert-clickme {
+/*    background-color: white;*/
+    border: dashed thick #fff;
+/*    border: dashed thick #ccc;    */
+    color: #fff;
+/*    color: #ccc;    */
+    height: 300px;
+}
+
+.boxes{
+font-family: 'Open Sans Condensed', sans-serif;
+ 
+ text-align: center;
+  
+}
+
+.alert-wine {
+    background-color: #C82C37;
+    color: #fff;
+    height: auto;
+}
+
+.alert-navy {
+    background-color: #302B47;
+    color: #fff;
+    height: auto;
+}
+
+
+
+.alert-greeny {
+    background-color: #AFC96B;
+    color: #fff;
+    height: auto;
+}
+
+.alert-blue {
+    background-color: #25B2DE;
+    color: #fff;
+    height: auto;
+}
+
+.alert-orange {
+    background-color:#FF6600;
+    color: #fff;
+    height: auto;
+}
+
+@media screen and (min-width: 1280px) {
+
+
+.box{
+/*padding: 15px;*/
+margin-bottom: 21px;
+border: 1px solid transparent;
+border-radius: 0px;
+height: 300px;
+max-width: 360px;
+  
+}
+
+}
+
+@media screen and (max-width: 366px) {
+
+
+.box{
+/*padding: 15px;*/
+margin-bottom: 21px;
+border: 1px solid transparent;
+border-radius: 0px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+
+  
+}
+
+}
+
+
+
+@media screen and (min-width:368px) and (max-width: 768px) {
+
+
+.box{
+/*padding: 15px;*/
+margin-bottom: 21px;
+border: 1px solid transparent;
+border-radius: 0px;
+    display: block;
+    max-width: 100%;
+    height: 300px;
+
+  
+}
+
+}
+
+@media screen and (min-width:768px) and (max-width: 978px) {
+
+
+.box{
+/*padding: 15px;*/
+margin-bottom: 21px;
+border: 1px solid transparent;
+border-radius: 0px;
+    display: block;
+ max-width: 345px;
+    height: 300px;
+
+  
+}
+
+}
+
+
+
+@media screen and (min-width:978px) and (max-width: 1076px) {
+
+
+.box{
+/*padding: 15px;*/
+margin-bottom: 21px;
+border: 1px solid transparent;
+border-radius: 0px;
+    display: block;
+ max-width: 450px;
+    height: 300px;
+
+  
+}
+
+}
+
+
+
+@media screen and (min-width:1077px) and (max-width: 1278px) {
+
+
+.box{
+/*padding: 15px;*/
+margin-bottom: 21px;
+border: 1px solid transparent;
+border-radius: 0px;
+    display: block;
+ max-width: 455px;
+    height: 300px;
+
+  
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 362px) {
+.boxes_container{
+
+/* width: 300px;*/
+ height: 300px;
+  
+}
+
+
+.boxes{
+
+ height: 210px;
+  
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.alert a{
+    color:white;
+    text-decoration: none;
+}
+
+.alert a:hover{
+    color:#121212;
+    text-decoration: none;
+}
+
+#saysth{
+    
+    display: none;
+}
+
+.load_run{
+    display: none;
+}
+
+
+
+.margin-top-05 { margin-top: 0.5em; }
+.margin-top-10 { margin-top: 1.0em; }
+.margin-top-15 { margin-top: 1.5em; }
+.margin-top-20 { margin-top: 2.0em; }
+.margin-top-25 { margin-top: 2.5em; }
+.margin-top-30 { margin-top: 3.0em; }
+
+
+.margin-top-50 { margin-top: 5.0em; }
+
+.margin-top-60 { margin-top: 6.0em; }
+
+.margin-top-70 { margin-top: 7.0em; }
+
+
+
+
+.text-navy, .text-yellow:hover {
+    color:#006599 ;
+}
+
+
+
+.text-yellow, .text-yellow:hover {
+    color:orange ;
+}
+
+
+
+body{
+/*    background: #967E82;*/
+        background: #05122D;
+/*            background: #A0CFC3 ;
+                background: pink;
+                    background: pink;*/
+color:white;
+}
+
+hr{
+    border-color: white;   
+}
+
+
+
+/* Set up a new font face and call it whatever you want.
+   In this case the font-family variable I create is American-Typewriter.
+   Make sure you point the src attribute to the correct .ttf file.
+   If you wish to use this font anywhere simply apply 
+   American-Typewriter to the font-family for any given style.
+*/
+
+
+
+.dontshow{
+    display: none;
+}
+
+
+
+
+.modal-content label{
+    
+    color:#666;
+}
+
+
+
+.countlabel{
+    
+    color:#666;
+}
+
+
+
+.form-control-small {
+    display: inline;
+    width: 30%;
+    height: 43px;
+    padding: 10px 18px;
+    font-size: 15px;
+    line-height: 1.42857;
+    color: #333;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 0px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+
+
+.input-sm{
+    
+    width: 50%;
+}
