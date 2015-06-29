@@ -174,8 +174,10 @@ Route::delete('/admin-area/media/{id}', 'AdminController@destroyMedia');
 
 
 
-
-
+Route::get('/admin-area/special-email', 'AdminController@SpecialEmail');
+Route::get('/admin-area/create-special-email', 'AdminController@CreateEmail');
+Route::post('/admin-area/create-special-email', 'AdminController@PostEmail');
+Route::delete('/admin-area/special-email/{id}', 'AdminController@destroySpecialEmail');
 
 
 
