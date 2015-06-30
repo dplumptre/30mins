@@ -51,12 +51,13 @@ class MyCode  {
       static  $menu_admin = 
             array(
                 
-               1 =>      array('title' => 'All Users',         'route' => '/admin-area/',                             'value' => array('admin-area'),                   'dropdown'=>''),         
-               2 =>      array('title' => 'All Prayers',       'route' => '/admin-area/view-prayers',                 'value' => array('view-prayers'),                 'dropdown'=>''), 
-//               3 =>      array('title' => 'All Comment',       'route' => '/admin-area/view-comments',                'value' => array('view-comments'),                'dropdown'=>''), 
-               3 =>      array('title' => 'All Media',         'route' => '/admin-area/media',                        'value' => array('media'),                        'dropdown'=>''),     
-               4 =>      array('title' => 'Create Media',         'route' => '/admin-area/create-media',               'value' => array('create-media'),                        'dropdown'=>''),
-                
+               1 =>      array('title' => 'All Users',                  'route' => '/admin-area/',                             'value' => array('admin-area'),                          'dropdown'=>''),         
+               2 =>      array('title' => 'All Prayers',                'route' => '/admin-area/view-prayers',                 'value' => array('view-prayers'),                        'dropdown'=>''), 
+//             3 =>      array('title' => 'All Comment',              'route' => '/admin-area/view-comments',                'value' => array('view-comments'),                       'dropdown'=>''), 
+               3 =>      array('title' => 'All Media',                  'route' => '/admin-area/media',                        'value' => array('media'),                               'dropdown'=>''),     
+               4 =>      array('title' => 'Create Media',               'route' => '/admin-area/create-media',                 'value' => array('create-media'),                        'dropdown'=>''),
+               5 =>      array('title' => 'All Special Emails',         'route' => '/admin-area/special-email',         'value' => array('special-email'),                'dropdown'=>''),
+               6 =>      array('title' => 'Create Special Emails',      'route' => '/admin-area/create-special-email',                'value' => array('create-special-email'),                        'dropdown'=>''),
                 
  ); 
   

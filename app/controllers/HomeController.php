@@ -216,18 +216,22 @@ $emailContent =array(
         $response = Event::fire('send.image', $lastprayer);          
         }   
 
+  
         
         
-$emails = [
-'ladipobabatunde@yahoo.com', 
-'raladesuru@yahoo.com',
-'kassim_rahman@yahoo.com',
-'just30minutes@tfolc.org',
-'deoladefunke@gmail.com',
-'megbopeayo@yahoo.com',
-'abimbolaoyelola@yahoo.com',
-'tanigee2@yahoo.com'    
-           ];
+        
+  $emails = Specialemail::orderBy('id', 'DESC')->get();       
+        
+//$emails = [
+//'ladipobabatunde@yahoo.com', 
+//'raladesuru@yahoo.com',
+//'kassim_rahman@yahoo.com',
+//'just30minutes@tfolc.org',
+//'deoladefunke@gmail.com',
+//'megbopeayo@yahoo.com',
+//'abimbolaoyelola@yahoo.com',
+//'tanigee2@yahoo.com'    
+//           ];
 
 
 
@@ -235,7 +239,7 @@ $emails = [
 foreach($emails as $e){
 Mail::send('mail.messageprayer', array('group'=>Input::get('cat'),'prayer'=>Input::get('message') ),  function($message) use ($e)
 {
-$message->to($e)->subject('Latest Prayer Post');  
+$message->to($e->email)->subject('Latest Prayer Post');  
 });
 } 
 

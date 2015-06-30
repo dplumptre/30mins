@@ -36,10 +36,10 @@ class LoginController extends \BaseController {
         switch ($user_row->access){
 
         case 1:
-        return Redirect::to('/')->with('success-message', 'You are now logged in!');
+        return Redirect::to('/')->with('success-message', 'You are now logged in');
             break;
         case 2:
-        return Redirect::to('admin-area')->with('success-message', 'You are now logged in!');            
+        return Redirect::to('admin-area')->with('success-message', 'You are now logged in');            
             break;
             
             

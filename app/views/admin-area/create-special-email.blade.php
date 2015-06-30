@@ -1,5 +1,5 @@
 <?php  $users = Auth::user();
-
+$row = User::orderBy('id', 'DESC')->get();
 $mycode = new MyCode();
 ?>
 @extends('layout.masterHome')
@@ -13,7 +13,7 @@ Admin Area
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-            <a href="{{ asset('/')}}" class="navbar-brand">#just30minutes</a>
+            <a href="{{ asset('/')}}" class="navbar-brand">#just30minutes </a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -55,7 +55,7 @@ Admin Area
 @stop
 
 @section('content')
-<div class="col-lg-12 ">
+<div class="col-lg-8">
     
     
     
@@ -108,103 +108,32 @@ if(!isset($cat)){
 <li><a href="{{ asset($menu['route'])}}">{{ $menu['title']}}</a></li>
 @endif
 @endforeach
-</ul>      
+</ul> 
+
+
+    <h2>Create Special Email</h2> 
 
 
 
-
-
-
-
-
-
-
-
-<?php
-
-//
-//foreach ($row as  $value) {
-//    
-//    echo $value->email ."<br />";
-//}
-
-
-?>
-
-
-
-
-
-
-    <h2>&nbsp;</h2> 
-<div id="holla"></div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    <table cellpadding="0"  cellspacing="0" border="0" class="table " id="example2">
-	<thead>
-		<tr >
-                    <th  width='15%' style="border:#023332 thin solid"  > S/n</th>
-			<th  width='15%' style="border:#023332 thin solid"  >Date</th>
-                        <th style="border:#023332 thin solid"  >Email</th>
-			<th  width='12%' style="border:#023332 thin solid" >Action</th>
-
-		</tr>
-	</thead>
-	<tbody>
-  @foreach($row as $key => $news)
-  		<tr class="odd gradeX">
-                    <td style="border:#023332 thin solid" >{{ $key +1 }}</td>
-			<td style="border:#023332 thin solid" >{{ $news->created_at }}</td>
-                        	<td style="border:#023332 thin solid" >{{$news->email }}</td>
-                                
-                                
-                                   
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-			<td style="border:#023332 thin solid" >               <!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
-    <!-- we will add this later since its a little more complicated than the other two buttons -->
-{{ Form::open(array('url' => 'admin-area/special-email/' . $news->id, 'class' => 'pull-right ')) }}
-{{ Form::hidden('_method', 'DELETE') }}
-<!--            {{ Form::submit('X', array('class' => 'fa fa-home btn btn-warning ')) }}-->
-<button type="submit" class="btn btn-danger "
-onclick="javascript:return confirm('Are you sure to delete ')" >  <i class="fa fa-trash-o"></i>
-</button>
-{{ Form::close() }}  
-    
- 
-           </td>
-		</tr>
+                        
+        {{ Form::open( array('url' => '/admin-area/create-special-email') )}}
         
         
-        @endforeach
+        
+        
+        {{ Form::label( 'title','Email')}}
+        {{ Form::text( 'email','', array('class' => 'form-control','placeholder'=>'Enter Email') ) }} 
+                       {{ $errors->first('email', "<p class='text-yellow'>:message</p>");}}
+        
 
-		
-	</tbody>
-</table>
+            
+         <br />
+        {{ Form::submit( 'Insert Email',array('class' =>'btn  btn-warning'))}}  
+             
+
+        
+        {{ Form::close()}}   
+
 
 
 

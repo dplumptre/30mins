@@ -28,8 +28,83 @@ class AdminController extends \BaseController {
     
             public function showIndex()
             {    
+                
+                
+
+                
+                
+                
+                
+                
+                
             return View::make('admin-area.index')->with('cat','admin-area');
             }
+            
+            
+            
+            
+              public function SpecialEmail()
+            {    
+                  
+            $row = Specialemail::orderBy('id', 'DESC')->get();
+                
+            return View::make('admin-area.special-email')
+                                               ->with('row',$row)
+                                               ->with('cat','special-email');
+            }          
+            
+            
+            
+               public function CreateEmail()
+            {    
+                  
+            $row = Specialemail::orderBy('id', 'DESC')->get();
+                
+            return View::make('admin-area.create-special-email')
+                                               ->with('row',$row)
+                                               ->with('cat','create-special-email');
+            }            
+            
+            
+            
+            public function PostEmail()
+            {    
+
+                
+            $rules = array(
+                
+                'email'=>'email|required|unique:specialemails'
+                
+            );    
+
+            $credentials = Input::all();
+
+            $v =   Specialemail::validate($credentials,$rules);
+            if($v !== true){
+            return Redirect::to('admin-area/create-special-email')->withErrors($v)->withInput();    
+            }  
+            
+                $data = Specialemail::create(array(
+
+                'email' => Input::get('email')
+
+                ))  ;
+                
+            return Redirect::to('admin-area/special-email')
+                                       
+                                       ->with('cat','create-special-email');
+            }             
+            
+            
+                    public function destroySpecialEmail($id)
+            {
+            $p = Specialemail::find($id);    
+            $p->delete();
+
+            return Redirect::to('admin-area/special-email')->with('success-message', "email has been deleted successfully");
+
+            }   
+            
             
             public function doAccess()
             {
@@ -46,7 +121,7 @@ class AdminController extends \BaseController {
                 $user->access = $access;
                 $user->save();
 
-                Session::flash('success-message','User has been successfully assigned! ');     
+                Session::flash('success-message','User has been successfully assigned ');     
 
                 //        reload the page  
                 echo"<script type='text/javascript'>
@@ -71,7 +146,7 @@ class AdminController extends \BaseController {
                 $user->live = $live;
                 $user->save();
 
-                Session::flash('success-message','Media has been successfully assigned!');     
+                Session::flash('success-message','Media has been successfully assigned');     
 
                 //        reload the page  
                 echo"<script type='text/javascript'>
@@ -96,10 +171,12 @@ class AdminController extends \BaseController {
 
             return Redirect::to('admin-area')->with('success-message', "User has been deleted successfully");
 
-
-
             } 
            
+            
+            
+            
+         
             
             
 
@@ -324,7 +401,7 @@ class AdminController extends \BaseController {
                 ));           
             
 
-       return Redirect::to('admin-area/media')->with('success-message','Media has been posted successfully!') ;  
+       return Redirect::to('admin-area/media')->with('success-message','Media has been posted successfully') ;  
        
             
             
