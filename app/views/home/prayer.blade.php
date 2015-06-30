@@ -95,6 +95,7 @@ Home
 
 @if(isset($did))
 <?php  
+//prayer with id of $did
 $prayers = Prayer::find($did);
 
 //increment the counts
@@ -103,7 +104,9 @@ $prayers->prayercount = $finalCount;
 $prayers->save();
 
 
-$postersinfo= Prayer::find($did)->users()->first();
+
+//this will show user with the prayer id of $did
+//$postersinfo= Prayer::find($did)->users()->first();
 
 ?>
 
@@ -125,11 +128,12 @@ $postersinfo= Prayer::find($did)->users()->first();
     
  
 
-<div >
+<div>
 {{ $comments->links() }}    
 </div> 
 
-<?php  echo $postersinfo->email; ?>
+<?php  //echo $postersinfo->email; ?><br />
+<?php // dd($postersinfo); ?>
 <!--
 check if the person is
 logged in then also if the person is an admin
@@ -171,16 +175,7 @@ logged in then also if the person is an admin
 
 @endif
     
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      
           </div> 
 
 @endif  <!--     final end if for specific-->

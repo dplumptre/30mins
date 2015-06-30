@@ -407,12 +407,40 @@ $message->to($e->email)->subject('Latest Prayer Post');
         ));
         
         
-        $postersinfo= Prayer::find($did)->users()->first();
+        
+        //prayer with id of $did
+        $prayers = Prayer::find($value);
+
+
+        //this will show user with the prayer id of $did
+        $postersinfo= Prayer::find($value)->users()->first();
+        
+        
+        
+       //echo $postersinfo
         
        // $comments = Comment::with('users')->where('prayer_id','=',)->start();
         
+//        $post = $prayers->message 
+//        $did = $did
+//        $username = $postersinfo->username
+//        $postersinfo->email
+            
         
-        return Redirect::to('prayer/'.$value)->with('success-message','Successfully posted!');
+      //send email to the owner of the post  
+      Mail::send('mail.message-latestcomment', array(  
+          'post' =>$prayers->message,
+          'username'=> $postersinfo->username,
+          'did'=> $value ,
+          'email'=> $postersinfo->email ), function($message)use ($postersinfo)
+{
+    $message->to( $postersinfo->email ,'Just30mins')->subject('Recent Comment on your post');
+});     
+     
+        
+        
+        
+        return Redirect::to('prayer/'.$value)->with('success-message','Successfully posted');
             
 	}          
         
