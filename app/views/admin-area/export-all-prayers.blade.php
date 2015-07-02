@@ -1,6 +1,8 @@
 <?php  $users = Auth::user();
-$row = User::orderBy('id', 'DESC')->get();
+$row = User::where('username','!=','Anonynmous')->orderBy('id', 'DESC')->get();
 $mycode = new MyCode();
+
+
 ?>
 @extends('layout.masterHome')
 
@@ -55,7 +57,7 @@ Admin Area
 @stop
 
 @section('content')
-<div class="col-lg-12">
+<div class="col-lg-12 ">
     
     
     
@@ -94,6 +96,7 @@ Admin Area
 
 
 
+
 <?php 
 if(!isset($cat)){
     $cat = null;
@@ -108,46 +111,42 @@ if(!isset($cat)){
 <li><a href="{{ asset($menu['route'])}}">{{ $menu['title']}}</a></li>
 @endif
 @endforeach
-</ul> 
+</ul>   
+    
 
 
-    <h2>Media</h2> 
+    
 
-
-
-                        
-        {{ Form::open( array('url' => '/admin-area/create-media') )}}
+    <h2>Export Prayers</h2> 
+    
+    
+    
+    
+                            
+                           
+        {{ Form::open( array('url' => '/admin-area/export-all-prayers') )}}
+         
         
-        
-        
-        
-        {{ Form::label( 'title','Title')}}
-        {{ Form::text( 'title','', array('class' => 'form-control','placeholder'=>'Enter Title') ) }} 
-                       {{ $errors->first('title', "<p class='text-yellow'>:message</p>");}}
-        
-        
-        
-        
-        {{ Form::label( 'user','Prayer Meeting Date')}}
-        {{ Form::text( 'date','', array('class' => 'form-control','placeholer' => 'Enter Date','id'=>'datepicker') ) }} 
-                    {{ $errors->first('date', "<p class='text-yellow'>:message</p>");}}
- 
-        
-        {{ Form::label( 'media','Enter Media')}}
-        {{ Form::textarea( 'mediacontent','', array('class' => 'form-control','placeholer' => 'Enter Media') ) }}
-            {{ $errors->first('mediacontent', "<p class='text-yellow'>:message</p>");}}
-            
-            
-         <br />
-        {{ Form::submit( 'Insert Media',array('class' =>'btn  btn-warning'))}}  
+        {{ Form::label( 'title','Number of prayer to be downloaded')}}<br />
+        {{ Form::text( 'prayernumber','', array('class' => 'form-control-small','placeholder'=>'e.g 10') ) }} 
+                       {{ $errors->first('prayernumber', "<p class='text-yellow'>:message</p>");}}
+    
+         <br /><br />
+        {{ Form::submit( 'Edit',array('class' =>'btn  btn-warning'))}}  
              
 
         
-        {{ Form::close()}}   
-
-
-
-
+        {{ Form::close()}}  
+        
+        
+        
+        
+        <h3>Current No of prayers to download: {{ $prayernumber }}</h3>
+        <h4>Total Number of prayers : {{ $p }}</h4>
+        
+        <a class="btn btn-lg btn-danger" href="{{   asset('/admin-area/export')  }}">download <i class="fa fa-download"></i></a>
+        
+        
 
 
 </div>

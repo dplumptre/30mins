@@ -1,5 +1,5 @@
 <?php  $users = Auth::user();
-$row = User::orderBy('id', 'DESC')->get();
+$row = Prayer::orderBy('id', 'DESC')->where('imgcat','=', 0 )->get();
 $mycode = new MyCode();
 ?>
 @extends('layout.masterHome')
@@ -20,6 +20,7 @@ Admin Area
             <span class="icon-bar"></span>
           </button>
         </div>
+
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
        
@@ -55,19 +56,7 @@ Admin Area
 @stop
 
 @section('content')
-<div class="col-lg-12">
-    
-    
-    
-    
-    
-    
-    
-    
-
-<div id="holla"></div>
-
-    
+<div class="col-lg-12 ">
 
 <!--    
    flash messages 
@@ -94,6 +83,7 @@ Admin Area
 
 
 
+
 <?php 
 if(!isset($cat)){
     $cat = null;
@@ -108,43 +98,34 @@ if(!isset($cat)){
 <li><a href="{{ asset($menu['route'])}}">{{ $menu['title']}}</a></li>
 @endif
 @endforeach
-</ul> 
+</ul>     
+    
 
+    <h2>View Prayers</h2> 
+    <table cellpadding="0"  cellspacing="0" border="0" class="table " id="example2">
+	<thead>
+		<tr >
+			<th style="border:#023332 thin solid"  >sn</th>
+                        <th style="border:#023332 thin solid"  >Category</th>
+			<th style="border:#023332 thin solid" >Prayers</th>
 
-    <h2>Media</h2> 
+		</tr>
+	</thead>
+	<tbody>
+  @foreach($row as $key => $news)
+  		<tr class="odd gradeX">
+			<td style="border:#023332 thin solid" >{{ $key +1 }}</td>
+                        	<td style="border:#023332 thin solid" >{{$news->cat }}</td>
+			<td style="border:#023332 thin solid" >{{ $news->message }}</td>
 
+		</tr>
+        
+        
+        @endforeach
 
-
-                        
-        {{ Form::open( array('url' => '/admin-area/create-media') )}}
-        
-        
-        
-        
-        {{ Form::label( 'title','Title')}}
-        {{ Form::text( 'title','', array('class' => 'form-control','placeholder'=>'Enter Title') ) }} 
-                       {{ $errors->first('title', "<p class='text-yellow'>:message</p>");}}
-        
-        
-        
-        
-        {{ Form::label( 'user','Prayer Meeting Date')}}
-        {{ Form::text( 'date','', array('class' => 'form-control','placeholer' => 'Enter Date','id'=>'datepicker') ) }} 
-                    {{ $errors->first('date', "<p class='text-yellow'>:message</p>");}}
- 
-        
-        {{ Form::label( 'media','Enter Media')}}
-        {{ Form::textarea( 'mediacontent','', array('class' => 'form-control','placeholer' => 'Enter Media') ) }}
-            {{ $errors->first('mediacontent', "<p class='text-yellow'>:message</p>");}}
-            
-            
-         <br />
-        {{ Form::submit( 'Insert Media',array('class' =>'btn  btn-warning'))}}  
-             
-
-        
-        {{ Form::close()}}   
-
+		
+	</tbody>
+</table>
 
 
 

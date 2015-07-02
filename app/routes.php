@@ -118,6 +118,16 @@ Route::delete('/user-area/view-comments/{id}', 'UserController@destroyComments')
 //
 
 
+Route::get('/admin-area/export-all-prayers', 'AdminController@ExportAllPrayers');
+Route::post('/admin-area/export-all-prayers', 'AdminController@PostExportAllPrayers');
+
+Route::get('/admin-area/export', 'AdminController@export');
+
+
+
+
+
+
 Route::get('/admin-area', 'AdminController@showIndex');
 Route::post('/admin-area', 'AdminController@doAccess');
 Route::delete('/admin-area/{id}', 'AdminController@destroyUsers');

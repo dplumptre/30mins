@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>app/controllers/AdminController.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>234</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/demifreeze/projects/osc/30mins/composer.json</file>
+            <file>file:/home/demifreeze/projects/osc/30mins/app/views/admin-area/export-all-prayers.blade.php</file>
+            <file>file:/home/demifreeze/projects/osc/30mins/app/controllers/AdminController.php</file>
+            <file>file:/home/demifreeze/projects/osc/30mins/app/config/app.php</file>
+            <file>file:/home/demifreeze/projects/osc/30mins/app/views/admin-area/export-prayers.blade.php</file>
+            <file>file:/home/demifreeze/projects/osc/30mins/app/models/Exportnumbers.php</file>
             <file>file:/home/demifreeze/projects/osc/30mins/app/routes.php</file>
+            <file>file:/home/demifreeze/projects/osc/30mins/app/libraries/MyCode.php</file>
+            <file>file:/home/demifreeze/projects/osc/30mins/app/views/admin-area/create-media.blade.php</file>
         </group>
     </open-files>
 </project-private>

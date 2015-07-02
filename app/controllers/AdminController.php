@@ -27,16 +27,8 @@ class AdminController extends \BaseController {
     
     
             public function showIndex()
-            {    
-                
-                
+            {     
 
-                
-                
-                
-                
-                
-                
             return View::make('admin-area.index')->with('cat','admin-area');
             }
             
@@ -175,20 +167,100 @@ class AdminController extends \BaseController {
            
             
             
-            
-         
-            
-            
-
-
             public function  ViewPrayers()
             {
             return View::make('admin-area.view-prayers')->with('cat','view-prayers');
+            }             
+         
+
+            public function  ViewDetailPrayers()
+            {
+            return View::make('admin-area.view-detail-prayers')->with('cat','view-prayers');
             }        
 
+            public function  ExportAllPrayers()
+            {
+                
+            $n = Exportnumber::get(array('number'))->first(); 
+            $pn = Prayer::orderBy('id', 'DESC')->where('imgcat','=', 0 )->get(); //total prayer
+            $p = count($pn); 
+            $data = array(
+            'prayernumber'=> $n->number,
+            'p'=> $p,
+            'cat'=>'export-all-prayers'
+            ); 
+               
+            return View::make('admin-area.export-all-prayers',$data);
+            }
 
+            
+            
+            
+             public function  PostExportAllPrayers()
+            {
+                 
 
-            public function  EditPrayers($id)
+            $rules =   array( 
+            'prayernumber'=>  'required|numeric'        
+            ) ;   
+
+            $credentials = Input::all();
+
+            $v = Exportnumber::validate($credentials,$rules);
+            if($v !== true){
+             return Redirect::to('admin-area/export-all-prayers')->withErrors($v)->withInput();    
+            }   
+            
+            
+            $prayernumb = Exportnumber::find(0);
+            $prayernumb->number = Input::get('prayernumber');
+            $prayernumb->save();       
+        
+
+            $n = Exportnumber::get(array('number'))->first();   //number of prayers to be downloaded          
+            
+            $data = array(
+                'prayernumber'=> $n->number,
+                'p'=> $p,
+                'success-message'=>'Number of prayers to be downloaded has been updated',
+                'cat'=>'export-all-prayers'
+            );
+                    
+
+            return Redirect::to('admin-area/export-all-prayers',$data);
+            }           
+            
+        
+         /*
+
+          * 
+          *  This takes care of the download
+          *  Export csv
+          * 
+          * 
+          *           */   
+            
+            
+            
+            
+            public function export(){
+
+            Excel::create('Prayers', function($excel) {
+
+            $excel->sheet('Prayers', function($sheet) {
+            
+            $n = Exportnumber::get(array('number'))->first();     
+            $row = Prayer::orderBy('id', 'DESC')->where('imgcat','=', 0 )->take($n->number)->get();
+            //$sheet->loadView('view-detail-prayers');
+            $sheet->loadView('admin-area.export-prayers', ['row' => $row]);
+            });
+            })->download('xls');
+            }
+            
+            
+            
+
+            public function   EditPrayers($id)
             {
 
             $row = Prayer::find($id);

@@ -122,6 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
                 'Mews\Captcha\CaptchaServiceProvider',
+            
+                'Maatwebsite\Excel\ExcelServiceProvider',
 
 	),
 
@@ -190,6 +192,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
                 'Captcha'         => 'Mews\Captcha\Facades\Captcha',
+            
+                'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 
 	),
 
