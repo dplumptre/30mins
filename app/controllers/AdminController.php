@@ -216,7 +216,8 @@ class AdminController extends \BaseController {
             $prayernumb->number = Input::get('prayernumber');
             $prayernumb->save();       
         
-
+            $pn = Prayer::orderBy('id', 'DESC')->where('imgcat','=', 0 )->get(); //total prayer
+            $p = count($pn); 
             $n = Exportnumber::get(array('number'))->first();   //number of prayers to be downloaded          
             
             $data = array(
@@ -227,7 +228,7 @@ class AdminController extends \BaseController {
             );
                     
 
-            return Redirect::to('admin-area/export-all-prayers',$data);
+            return View::make('admin-area/export-all-prayers',$data);
             }           
             
         
@@ -297,6 +298,12 @@ class AdminController extends \BaseController {
 
             public function destroyPrayers($id)
             {
+                
+                
+        
+
+            $s = Comment::where('prayer_id',"=",$id)->delete();                          
+                
             $users = Prayer::find($id);
             $users->delete();
 

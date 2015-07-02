@@ -141,10 +141,10 @@ if(!isset($cat)){
         
         
         
-        <h3>Current No of prayers to download: {{ $prayernumber }}</h3>
-        <h4>Total Number of prayers : {{ $p }}</h4>
         
-        <a class="btn btn-lg btn-danger" href="{{   asset('/admin-area/export')  }}">download <i class="fa fa-download"></i></a>
+        <h4>Total Number of prayers : <strong> {{ $p }} </strong></h4>
+        
+        <a class="btn btn-lg btn-danger" href="{{   asset('/admin-area/export')  }}">download <i class="fa fa-download"></i> ( {{ $prayernumber }} Prayers )</a>
         
         
 
